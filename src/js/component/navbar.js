@@ -28,8 +28,12 @@ export const Navbar = () => {
 					<SearchBar />
 				</div>
 				<div className="icon-container">
-					<PersonCircle className="icon" />
-					<Basket2Fill className="icon" />
+					<Link to="/">
+						<PersonCircle className="icon" />
+					</Link>
+					<Link to="/">
+						<Basket2Fill className="icon" />
+					</Link>
 				</div>
 			</nav>
 			<div className={"mobile-search" + (clicked == true ? " on" : "")}>

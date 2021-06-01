@@ -11,6 +11,10 @@ $naranja: #EE7F11;
     margin: 0;
 }
 
+a{
+    color: inherit;
+}
+
 @mixin flexCenter(){
     display: flex;
     align-items: center;
@@ -47,6 +51,11 @@ $naranja: #EE7F11;
 
     .icon{
         font-size: 1.2rem;
+        cursor: pointer;
+
+        &:hover{
+            color: $naranja;
+        }
     }
 
     .logo{
@@ -101,6 +110,9 @@ $naranja: #EE7F11;
         right: 10px;
         top: 10px;
         color: rgba(0, 0, 0, .5);
+        @include desktop(){
+            top: 8px;
+        }
     }
 
     .search-input{
