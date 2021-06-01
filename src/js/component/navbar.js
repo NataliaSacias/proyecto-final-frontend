@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { List, PersonCircle, Search, Basket2Fill } from "react-bootstrap-icons";
+import { List, PersonCircle, Search, Basket2Fill, X } from "react-bootstrap-icons";
 import Logo from "../../img/landa_logo.png";
 import { SearchBar } from "./SearchBar";
 import "../../styles/navbar.scss";
@@ -16,7 +16,7 @@ export const Navbar = () => {
 		<>
 			<nav className="navbar-container">
 				<div className="icon-mobile" onClick={menuClick}>
-					<Search className="icon" />
+					{clicked == true ? <X className="icon" /> : <Search className="icon" />}
 				</div>
 
 				<div className="logo">
