@@ -10,5 +10,6 @@ export const Home = () => (
 		<Imgbienvenidahome />
 		<SobreLanda />
 		<ProductosDetacados />
+        
 	</div>
 );

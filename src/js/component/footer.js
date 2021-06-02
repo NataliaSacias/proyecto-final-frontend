@@ -28,4 +28,5 @@ export const Footer = () => (
 			Proyecto final - Grupo 6<span>Junio 2021</span>
 		</p>
 	</footer>
+    
 );

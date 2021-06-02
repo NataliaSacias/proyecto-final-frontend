@@ -110,6 +110,7 @@ export const ProductosDetacados = () => {
 										"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
 									}
 								/>
+                                
 							</div>
 						</div>
 						<h5 className="m-2 text-center" style={{ color: "#006241" }}>

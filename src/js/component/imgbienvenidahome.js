@@ -20,6 +20,7 @@ export const Imgbienvenidahome = () => (
 					style={{ backgroundColor: "#EE7F11" }}>
 					IR A LA TIENDA
 				</Link>
+                
 			</div>
 		</div>
 	</div>
