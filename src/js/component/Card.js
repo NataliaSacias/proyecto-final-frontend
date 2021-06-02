@@ -1,0 +1,31 @@
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+export const Card = props => {
+	return (
+		<div>
+			<div className="card" style={{ width: "18rem" }}>
+				<img src={props.imgUrl} className="card-img-top" alt="..." />
+				<div className="card-body">
+					<h5 className="card-title">{props.nombre}</h5>
+					<p className="card-text">${props.precio}</p>
+					<Link
+						to={"/tienda/detalle/" + props.id}
+						type="button"
+						className="btn text-light fontKanit px-5"
+						style={{ backgroundColor: "#EE7F11" }}>
+						Ver Mas
+					</Link>
+				</div>
+			</div>
+		</div>
+	);
+};
+Card.propTypes = {
+	nombre: PropTypes.string,
+	precio: PropTypes.number,
+	imgUrl: PropTypes.string,
+	id: PropTypes.number
+};
