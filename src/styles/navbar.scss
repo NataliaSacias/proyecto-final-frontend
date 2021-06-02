@@ -53,10 +53,14 @@ a{
         font-size: 1.2rem;
         cursor: pointer;
 
-        &:hover{
-            color: $naranja;
+        @include desktop(){
+            &:hover{
+                color: $naranja;
+            }
         }
+        
     }
+
 
     .logo{
         width: 45%;

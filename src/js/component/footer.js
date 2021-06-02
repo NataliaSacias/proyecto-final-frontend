@@ -1,10 +1,31 @@
 import React, { Component } from "react";
+import LogoNegativo from "../../img/logo_b&w.png";
+import { Link } from "react-router-dom";
+import "../../styles/footer.scss";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
+	<footer className="footer-container">
+		<img src={LogoNegativo} />
+		<ul className="footer-list">
+			<li>
+				<Link to="/">Tienda</Link>
+			</li>
+			<li>
+				<Link to="/">Contacto</Link>
+			</li>
+			<li>
+				<ul>
+					<li>
+						<Link to="/">Registro</Link>
+					</li>
+					<li>
+						<Link to="/">Log in</Link>
+					</li>
+				</ul>
+			</li>
+		</ul>
 		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
+			Proyecto final - Grupo 5<span>Junio 2021</span>
 		</p>
 	</footer>
 );
