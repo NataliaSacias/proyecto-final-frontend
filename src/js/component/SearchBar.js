@@ -10,7 +10,6 @@ export const SearchBar = () => {
 				<Search className="icon" />
 				<input name="name" placeholder="Buscar..." className="search-input" />
 			</div>
-            
 		</>
 	);
 };
