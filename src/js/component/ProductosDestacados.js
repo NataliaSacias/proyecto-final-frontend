@@ -7,8 +7,12 @@ export const ProductosDetacados = () => {
 			<div className="">
 				<div className="d-sm-block d-md-none">
 					<div className="d-flex justify-content-center align-items-center flex-column fontKanit">
-						<h3 style={{ color: "#006241" }}>Productos destacados</h3>
-						<h5 style={{ color: "#EE7F11" }}>Los mejores productos de estación</h5>
+						<h3 style={{ color: "#006241" }} className="text-center">
+							Productos destacados
+						</h3>
+						<h5 style={{ color: "#EE7F11" }} className="text-center">
+							Los mejores productos de estación
+						</h5>
 						<div
 							id="carouselExampleControlsNoTouching"
 							className="carousel slide p-3"
@@ -63,15 +67,19 @@ export const ProductosDetacados = () => {
 								<span className="sr-only">Next</span>
 							</a>
 						</div>
-						<h5 className="m-2" style={{ color: "#006241" }}>
+						<h5 className="m-2 text-center" style={{ color: "#006241" }}>
 							Todos nuestros productos cuentan con Certificación de la Red de Agroecología Nacional
 						</h5>
 					</div>
 				</div>
 				<div className="d-md-block d-sm-none">
 					<div className="p-3">
-						<h3 style={{ color: "#006241" }}>Productos destacados</h3>
-						<h5 style={{ color: "#EE7F11" }}>Los mejores productos de estación</h5>
+						<h3 style={{ color: "#006241" }} className="text-center">
+							Productos destacados
+						</h3>
+						<h5 style={{ color: "#EE7F11" }} className="text-center">
+							Los mejores productos de estación
+						</h5>
 						<div className="d-flex justify-content-around align-items-center p-3">
 							<div>
 								<Card
@@ -104,7 +112,7 @@ export const ProductosDetacados = () => {
 								/>
 							</div>
 						</div>
-						<h5 className="m-2" style={{ color: "#006241" }}>
+						<h5 className="m-2 text-center" style={{ color: "#006241" }}>
 							Todos nuestros productos cuentan con Certificación de la Red de Agroecología Nacional
 						</h5>
 					</div>
