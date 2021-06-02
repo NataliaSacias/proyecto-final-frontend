@@ -3,8 +3,8 @@ import señorimg from "../../img/señor_landa.jpg";
 import canastaimg from "../../img/canasta_landa.jpg";
 
 export const SobreLanda = () => (
-	<div>
-		<div className="card mb-3 border-0 fontKanit" style={{ maxWidth: "100%" }}>
+	<div className="container">
+		<div className="card my-3 border-0 fontKanit" style={{ maxWidth: "100%" }}>
 			<div className="row no-gutters">
 				<div className="col-md-6">
 					<div
@@ -63,6 +63,7 @@ export const SobreLanda = () => (
 								produzca alimentos saludables, que no estén contaminados por agroquímicos que terminan
 								afectando nuestra salud
 							</h5>
+                            
 						</div>
 					</div>
 				</div>

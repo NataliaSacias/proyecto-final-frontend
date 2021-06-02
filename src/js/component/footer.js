@@ -25,7 +25,8 @@ export const Footer = () => (
 			</li>
 		</ul>
 		<p>
-			Proyecto final - Grupo 5<span>Junio 2021</span>
+			Proyecto final - Grupo 6<span>Junio 2021</span>
 		</p>
 	</footer>
+    
 );
