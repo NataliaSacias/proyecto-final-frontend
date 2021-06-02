@@ -67,7 +67,7 @@ a{
         }
 
         @include desktop(){
-            width: 15%;
+            width: 12%;
         }
     }
 
@@ -84,7 +84,7 @@ a{
         width: 80px;
         @include flexEvenly();        
         @include desktop(){
-            width: 100px;
+            width: 70px;
             justify-content: space-between;
         }
 
