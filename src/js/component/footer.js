@@ -19,7 +19,7 @@ export const Footer = () => (
 						<Link to="/">Registro</Link>
 					</li>
 					<li>
-						<Link to="/">Log in</Link>
+						<Link to="/login">Log in</Link>
 					</li>
 				</ul>
 			</li>

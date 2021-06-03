@@ -94,7 +94,7 @@ export const PortadaLogin = () => (
 					<label className="form-check-label" htmlFor="exampleCheck1" style={{ color: "#006241" }}>
 						¿Olvidaste tu contraseña?
 					</label>
-					<Link to="/" className="font-weight-bold" style={{ color: "#006241" }}>
+					<Link to="/registro" className="font-weight-bold" style={{ color: "#006241" }}>
 						Click acá
 					</Link>
 				</div>
