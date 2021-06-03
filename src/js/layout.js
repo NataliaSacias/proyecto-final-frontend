@@ -8,6 +8,7 @@ import { Single } from "./views/single";
 import { Login } from "./views/login";
 import { Registro } from "./views/registro";
 import injectContext from "./store/appContext";
+import { Contact } from "./views/contact";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -41,6 +42,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/tienda">
 							<Single />
+						</Route>
+						<Route exact path="/contact">
+							<Contact />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
