@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import img from "../../img/mix-familiar-.jpg";
 
 export const Card = props => {
 	return (
 		<div>
 			<div className="card" style={{ width: "18rem" }}>
-				<img src={props.imgUrl} className="card-img-top" alt="..." />
+				<img src={props.imgUrl === "no diponible" ? img : props.imgUrl} className="card-img-top" alt="..." />
 				<div className="card-body">
 					<h5 className="card-title">{props.nombre}</h5>
 					<p className="card-text">${props.precio}</p>
