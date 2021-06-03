@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Card } from "./Card";
+import "../../styles/home.scss";
 
 export const ProductosDetacados = () => {
 	return (
 		<div className="container">
 			<div className="">
-				<div className="d-sm-block d-md-none">
+				<div className="carrousel">
 					<div className="d-flex justify-content-center align-items-center flex-column fontKanit">
 						<h3 style={{ color: "#006241" }} className="text-center">
 							Productos destacados
@@ -72,7 +73,7 @@ export const ProductosDetacados = () => {
 						</h5>
 					</div>
 				</div>
-				<div className="d-md-block d-sm-none">
+				<div className="vista-lista">
 					<div className="p-3">
 						<h3 style={{ color: "#006241" }} className="text-center">
 							Productos destacados
@@ -110,7 +111,6 @@ export const ProductosDetacados = () => {
 										"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
 									}
 								/>
-                                
 							</div>
 						</div>
 						<h5 className="m-2 text-center" style={{ color: "#006241" }}>

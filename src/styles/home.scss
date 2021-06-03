@@ -3,3 +3,24 @@
 .fontKanit{
     font-family:"Kanit";
 }
+
+.carrousel{
+    display: block;
+}
+
+
+.vista-lista{
+    display: none;
+}
+
+
+@media all and (min-width: 768px){
+    .carrousel{
+        display: none;
+    }
+
+    .vista-lista{
+        display: block;
+    }
+}
+

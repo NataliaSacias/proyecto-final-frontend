@@ -39,7 +39,6 @@ export const Navbar = () => {
 			<div style={{ height: "100px" }} />
 			<div className={"mobile-search" + (clicked == true ? " on" : "")}>
 				<SearchBar />
-                
 			</div>
 		</>
 	);
