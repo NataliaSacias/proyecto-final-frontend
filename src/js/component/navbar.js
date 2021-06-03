@@ -31,7 +31,7 @@ export const Navbar = () => {
 					<Link to="/login">
 						<PersonCircle className="icon" />
 					</Link>
-					<Link to="/">
+					<Link to="/miperfil">
 						<Basket2Fill className="icon" />
 					</Link>
 				</div>

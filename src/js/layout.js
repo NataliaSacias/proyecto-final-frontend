@@ -8,6 +8,7 @@ import { Single } from "./views/single";
 import { Login } from "./views/login";
 import { Registro } from "./views/registro";
 import injectContext from "./store/appContext";
+import { Profile } from "./views/profile";
 import { Contact } from "./views/contact";
 
 import { Navbar } from "./component/navbar";
@@ -43,6 +44,9 @@ const Layout = () => {
 						<Route exact path="/tienda">
 							<Single />
 						</Route>
+						<Route exact path="/miperfil">
+							<Profile />
+             </Route>
 						<Route exact path="/contact">
 							<Contact />
 						</Route>
