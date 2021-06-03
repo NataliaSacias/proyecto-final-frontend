@@ -145,9 +145,11 @@ a{
     z-index: 3;
     top: 100px;
     transition: all .2s ease-out;
+    display: none;
     opacity: 0;
 }
 
 .on{
+    display: flex;
     opacity: 1;
 }

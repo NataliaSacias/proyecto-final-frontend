@@ -1,0 +1,71 @@
+/*tipografía*/
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Colores*/
+$verde: #006241;
+$naranja: #EE7F11;
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    color: inherit;
+}
+
+@mixin flexCenter(){
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@mixin flexEvenly(){
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*Media Querie*/
+@mixin desktop(){
+    @media (min-width: 768px){
+        @content
+    }
+}
+
+
+.profile-container{
+    font-family: "Kanit";
+    margin: 2em 0;
+    padding: 0 1em;
+
+    h3{
+        font-weight: 400;
+        color: $verde;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    h5{
+        font-weight: 400;
+        color: $verde;
+    }
+
+    label{
+        margin-bottom: unset;
+    }
+
+    input:not(:last-of-type){
+        margin-bottom: 1em;
+    }
+
+    small{
+        color: #b6b6b6;
+    }
+
+    .btn-container{
+        margin-top: 1em;
+        width: 100%;        
+    }
+}
