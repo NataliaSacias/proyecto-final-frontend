@@ -16,7 +16,7 @@ export const Footer = () => (
 			<li>
 				<ul>
 					<li>
-						<Link to="/">Registro</Link>
+						<Link to="/registro">Registro</Link>
 					</li>
 					<li>
 						<Link to="/login">Log in</Link>
