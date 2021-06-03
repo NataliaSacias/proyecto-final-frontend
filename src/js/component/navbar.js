@@ -28,10 +28,10 @@ export const Navbar = () => {
 					<SearchBar />
 				</div>
 				<div className="icon-container">
-					<Link to="/miperfil">
+					<Link to="/">
 						<PersonCircle className="icon" />
 					</Link>
-					<Link to="/">
+					<Link to="/miperfil">
 						<Basket2Fill className="icon" />
 					</Link>
 				</div>
