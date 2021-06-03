@@ -12,17 +12,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			productos: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			loadSomeData: async () => {
+				try {
+					const res = await fetch(process.env.BACKEND_URL + "/productos");
+					const data = await res.json();
+					console.log("Async:", data);
+					setStore({
+						productos: data
+					});
+				} catch (error) {
+					console.log(error);
+				}
 			},
 			changeColor: (index, color) => {
 				//get the store
