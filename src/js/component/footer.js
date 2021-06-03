@@ -11,15 +11,15 @@ export const Footer = () => (
 				<Link to="/">Tienda</Link>
 			</li>
 			<li>
-				<Link to="/">Contacto</Link>
+				<Link to="/contact">Contacto</Link>
 			</li>
 			<li>
 				<ul>
 					<li>
-						<Link to="/">Registro</Link>
+						<Link to="/registro">Registro</Link>
 					</li>
 					<li>
-						<Link to="/">Log in</Link>
+						<Link to="/login">Log in</Link>
 					</li>
 				</ul>
 			</li>

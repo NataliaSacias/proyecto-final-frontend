@@ -28,7 +28,7 @@ export const Navbar = () => {
 					<SearchBar />
 				</div>
 				<div className="icon-container">
-					<Link to="/">
+					<Link to="/login">
 						<PersonCircle className="icon" />
 					</Link>
 					<Link to="/miperfil">

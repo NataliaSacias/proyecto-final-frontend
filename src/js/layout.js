@@ -5,8 +5,11 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { Login } from "./views/login";
+import { Registro } from "./views/registro";
 import injectContext from "./store/appContext";
 import { Profile } from "./views/profile";
+import { Contact } from "./views/contact";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -26,6 +29,12 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
+						<Route exact path="/registro">
+							<Registro />
+						</Route>
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
@@ -37,6 +46,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/miperfil">
 							<Profile />
+             </Route>
+						<Route exact path="/contact">
+							<Contact />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -1,8 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useContext, useEffect } from "react";
 import { Card } from "./Card";
 import "../../styles/home.scss";
 
+import { Context } from "../store/appContext";
+
 export const ProductosDetacados = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="container">
 			<div className="">
@@ -22,32 +25,26 @@ export const ProductosDetacados = () => {
 							<div className="carousel-inner">
 								<div className="carousel-item active">
 									<Card
-										nombre={"Name"}
-										precio={555}
-										id={1}
-										imgUrl={
-											"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
-										}
+										nombre={store.productos[0] ? store.productos[0].nombre : "Cargando"}
+										precio={store.productos[0] ? store.productos[0].precio : 0}
+										id={store.productos[0] ? store.productos[0].id : 0}
+										imgUrl={store.productos[0] ? store.productos[0].fotoDePortada : "no diponible"}
 									/>
 								</div>
 								<div className="carousel-item">
 									<Card
-										nombre={"Name"}
-										precio={444}
-										id={2}
-										imgUrl={
-											"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
-										}
+										nombre={store.productos[1] ? store.productos[1].nombre : "Cargando"}
+										precio={store.productos[1] ? store.productos[1].precio : 0}
+										id={store.productos[1] ? store.productos[1].id : 0}
+										imgUrl={store.productos[1] ? store.productos[1].fotoDePortada : "no diponible"}
 									/>
 								</div>
 								<div className="carousel-item">
 									<Card
-										nombre={"Name"}
-										precio={233}
-										id={3}
-										imgUrl={
-											"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
-										}
+										nombre={store.productos[2] ? store.productos[2].nombre : "Cargando"}
+										precio={store.productos[2] ? store.productos[2].precio : 0}
+										id={store.productos[2] ? store.productos[2].id : 0}
+										imgUrl={store.productos[2] ? store.productos[2].fotoDePortada : "no diponible"}
 									/>
 								</div>
 							</div>
@@ -56,7 +53,7 @@ export const ProductosDetacados = () => {
 								href="#carouselExampleControlsNoTouching"
 								role="button"
 								data-slide="prev">
-								<span className="carousel-control-prev-icon" aria-hidden="true" />
+								<span className="carousel-control-prev-icon bg-secondary" aria-hidden="true" />
 								<span className="sr-only">Previous</span>
 							</a>
 							<a
@@ -64,7 +61,7 @@ export const ProductosDetacados = () => {
 								href="#carouselExampleControlsNoTouching"
 								role="button"
 								data-slide="next">
-								<span className="carousel-control-next-icon" aria-hidden="true" />
+								<span className="carousel-control-next-icon bg-secondary" aria-hidden="true" />
 								<span className="sr-only">Next</span>
 							</a>
 						</div>
@@ -84,32 +81,26 @@ export const ProductosDetacados = () => {
 						<div className="d-flex justify-content-around align-items-center p-3">
 							<div>
 								<Card
-									nombre={"Name"}
-									precio={233}
-									id={3}
-									imgUrl={
-										"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
-									}
+									nombre={store.productos[0] ? store.productos[0].nombre : "Cargando"}
+									precio={store.productos[0] ? store.productos[0].precio : 0}
+									id={store.productos[0] ? store.productos[0].id : 0}
+									imgUrl={store.productos[0] ? store.productos[0].fotoDePortada : "no diponible"}
 								/>
 							</div>
 							<div>
 								<Card
-									nombre={"Name"}
-									precio={233}
-									id={3}
-									imgUrl={
-										"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
-									}
+									nombre={store.productos[1] ? store.productos[1].nombre : "Cargando"}
+									precio={store.productos[1] ? store.productos[1].precio : 0}
+									id={store.productos[1] ? store.productos[1].id : 0}
+									imgUrl={store.productos[1] ? store.productos[1].fotoDePortada : "no diponible"}
 								/>
 							</div>
 							<div>
 								<Card
-									nombre={"Name"}
-									precio={233}
-									id={3}
-									imgUrl={
-										"https://image.freepik.com/foto-gratis/muchas-verduras-pasillo-productos-agricolas-frescos-supermercado_199620-6243.jpg"
-									}
+									nombre={store.productos[2] ? store.productos[2].nombre : "Cargando"}
+									precio={store.productos[2] ? store.productos[2].precio : 0}
+									id={store.productos[2] ? store.productos[2].id : 0}
+									imgUrl={store.productos[2] ? store.productos[2].fotoDePortada : "no diponible"}
 								/>
 							</div>
 						</div>
