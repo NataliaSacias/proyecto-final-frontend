@@ -10,6 +10,7 @@ import { Registro } from "./views/registro";
 import injectContext from "./store/appContext";
 import { Profile } from "./views/profile";
 import { Contact } from "./views/contact";
+import Tienda from "./views/tienda";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -42,11 +43,12 @@ const Layout = () => {
 							<Single />
 						</Route>
 						<Route exact path="/tienda">
-							<Single />
+							{/* <Single /> */}
+							<Tienda />
 						</Route>
 						<Route exact path="/miperfil">
 							<Profile />
-             </Route>
+						</Route>
 						<Route exact path="/contact">
 							<Contact />
 						</Route>
