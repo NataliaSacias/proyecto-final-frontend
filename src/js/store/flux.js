@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			productos: []
+			productos: [],
+			dataRegistro: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -45,6 +46,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			registro: async (email, contraseña, nombre, apellido) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					nombre: nombre,
+					apellido: apellido,
+					email: email,
+					password: contraseña
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				const res = await fetch(process.env.BACKEND_URL + "/user", requestOptions);
+				const data = await res.json();
+				console.log(data);
+				setStore({
+					dataRegistro: data
+				});
 			}
 		}
 	};
