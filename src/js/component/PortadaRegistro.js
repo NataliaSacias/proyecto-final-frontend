@@ -136,11 +136,8 @@ export const PortadaRegistro = () => (
 			</div>
 			<div className="row">
 				<div className="col-md-6 col-11 mx-auto d-flex justify-content-center mt-4 mb-5">
-					<label className="form-check-label" htmlFor="exampleCheck1" style={{ color: "#006241" }}>
-						¿Ya tienes una cuenta?
-					</label>
 					<Link to="/login" className="font-weight-bold" style={{ color: "#006241" }}>
-						Click acá
+						¿Ya tienes una cuenta?
 					</Link>
 				</div>
 			</div>
