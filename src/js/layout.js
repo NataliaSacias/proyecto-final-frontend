@@ -10,6 +10,7 @@ import { Registro } from "./views/registro";
 import injectContext from "./store/appContext";
 import { Profile } from "./views/profile";
 import { Contact } from "./views/contact";
+import { Producto } from "./views/producto";
 import Tienda from "./views/tienda";
 
 import { Navbar } from "./component/navbar";
@@ -55,6 +56,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/contact">
 							<Contact />
+						</Route>
+						<Route exact path="/detalle">
+							<Producto />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
