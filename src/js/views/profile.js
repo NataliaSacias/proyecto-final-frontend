@@ -4,6 +4,8 @@ import { CardDireccion } from "../component/CardDireccion";
 import "../../styles/profile.scss";
 
 export const Profile = () => {
+	const [modalShowUp, setModalShowUp] = useState(false);
+
 	return (
 		<div className="profile-container">
 			<h3>Mi perfil</h3>
@@ -42,9 +44,7 @@ export const Profile = () => {
 				</div>
 				<hr />
 				<div className="direccion-container">
-					<button type="button" className="btn-add-new">
-						+ Agregar nuevo domicilio
-					</button>
+					<ModalProfile />
 					<CardDireccion />
 				</div>
 				<div className="btn-container">
