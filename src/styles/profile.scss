@@ -111,3 +111,51 @@ a{
         }
     }
 }
+
+/*MODAL*/
+
+.modal-container{
+    .modal-header{
+        .modal-title{
+            font-family: "Kanit";
+            font-weight: 300;
+            text-align: center;
+            color: $verde;
+        }
+
+        button{
+            background-color: transparent;
+            font-size: 1.2rem;
+            border: none;
+        }
+    }
+
+    .modal-body{
+        input{
+            margin-bottom: 1.5em;
+        }
+
+        .input-numero{
+            position: relative;
+
+            span{
+                    position: absolute;
+                    right: 3%;
+                    top: 20%;                    
+                    display: flex;
+            }
+        }
+    }
+
+    .modal-footer{
+        button{
+            background-color: $naranja;
+            border: none;
+            padding: .7em 1em;
+            border-radius: 5px;
+            font-family: "Kanit";
+            color: #fff;
+            font-weight: 400;
+        }
+    }
+}
