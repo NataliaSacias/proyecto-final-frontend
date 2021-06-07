@@ -10,6 +10,7 @@ import { Registro } from "./views/registro";
 import injectContext from "./store/appContext";
 import { Profile } from "./views/profile";
 import { Contact } from "./views/contact";
+import { Producto } from "./views/producto";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -46,9 +47,12 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/miperfil">
 							<Profile />
-             </Route>
+						</Route>
 						<Route exact path="/contact">
 							<Contact />
+						</Route>
+						<Route exact path="/detalle">
+							<Producto />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -21,11 +21,6 @@ a{
     justify-content: space-evenly;
 }
 
-@mixin flexEvenly(){
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
 
 /*Media Querie*/
 @mixin desktop(){
@@ -87,7 +82,7 @@ a{
 
     .icon-container{
         width: 80px;
-        @include flexEvenly();        
+        @include flexCenter();        
         @include desktop(){
             width: 70px;
             justify-content: space-between;
