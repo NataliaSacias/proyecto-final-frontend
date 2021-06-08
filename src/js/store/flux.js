@@ -14,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			productos: [],
-			dataRegistro: []
+			dataRegistro: [],
+			dataLogin: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -70,6 +71,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data);
 				setStore({
 					dataRegistro: data
+				});
+			},
+			login: async (email, contraseña) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: email,
+					password: contraseña
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				const res = await fetch(process.env.BACKEND_URL + "/login", requestOptions);
+				const data = await res.json();
+				console.log(data);
+				setStore({
+					dataLogin: data
 				});
 			}
 		}
