@@ -1,0 +1,68 @@
+/*tipografía*/
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Colores*/
+$verde: #006241;
+$naranja: #EE7F11;
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    color: inherit;
+}
+
+
+@mixin flexCenter(){
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+/*Media Querie*/
+@mixin desktop(){
+    @media (min-width: 768px){
+        @content
+    }
+}
+
+
+.input-container{
+    height: 50px;
+    display: flex;
+    margin: 0 auto;   
+    min-width: 110px;            
+
+    input{
+        height: inherit;
+        background-color: transparent;
+        border: solid 1px #9c9c9c;
+
+        &:not(:last-of-type){
+            min-width: 30px;
+        }
+
+        &:nth-child(1){
+            order: 1;
+        }
+
+        &:nth-child(2){
+            order: 3
+        }
+
+        &:nth-child(3){
+            max-width: 100%;
+            min-width: 50px;
+            order: 2;
+            border: none;
+            border-top: solid 1px #9c9c9c;
+            border-bottom: solid 1px #9c9c9c;
+            text-align: center;
+        }
+    }
+
+}

@@ -9,7 +9,7 @@ export const Card = props => {
 		<div>
 			<div className="card" style={{ width: "18rem" }}>
 				<img src={props.imgUrl === "no diponible" ? img : props.imgUrl} className="card-img-top" alt="..." />
-				<div className="card-body">
+				<div className="card-body d-flex flex-column align-items-center">
 					<h5 className="card-title">{props.nombre}</h5>
 					<p className="card-text">${props.precio}</p>
 					<Link

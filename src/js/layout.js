@@ -12,6 +12,7 @@ import { Profile } from "./views/profile";
 import { Contact } from "./views/contact";
 import { Producto } from "./views/producto";
 import Tienda from "./views/tienda";
+import { Carrito } from "./views/carrito";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -59,6 +60,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/detalle">
 							<Producto />
+						</Route>
+						<Route exact path="/carrito">
+							<Carrito />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -53,7 +53,7 @@ export const ProductosDetacados = () => {
 								href="#carouselExampleControlsNoTouching"
 								role="button"
 								data-slide="prev">
-								<span className="carousel-control-prev-icon bg-secondary" aria-hidden="true" />
+								<span className="carousel-control-prev-icon" aria-hidden="true" />
 								<span className="sr-only">Previous</span>
 							</a>
 							<a
@@ -61,7 +61,7 @@ export const ProductosDetacados = () => {
 								href="#carouselExampleControlsNoTouching"
 								role="button"
 								data-slide="next">
-								<span className="carousel-control-next-icon bg-secondary" aria-hidden="true" />
+								<span className="carousel-control-next-icon" aria-hidden="true" />
 								<span className="sr-only">Next</span>
 							</a>
 						</div>
