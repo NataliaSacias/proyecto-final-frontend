@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			productos: [],
 			dataRegistro: [],
+			detalleProducto: [],
 			dataLogin: []
 		},
 		actions: {
@@ -71,6 +72,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data);
 				setStore({
 					dataRegistro: data
+				});
+			},
+
+			loadDetalleProducto: async productoId => {
+				var requestOptions = {
+					method: "GET",
+					redirect: "follow"
+				};
+
+				const res = await fetch(process.env.BACKEND_URL + "/productos/" + productoId, requestOptions);
+				const data = await res.json();
+				console.log(data);
+				setStore({
+					detalleProducto: data
 				});
 			},
 			login: async (email, contraseña) => {

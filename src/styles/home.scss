@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/*Colores*/
+$verde: #006241;
+$naranja: #EE7F11;
+$naranja-lg: rgb(252, 154, 56);
+
+/*Media Querie*/
+@mixin desktop(){
+    @media (min-width: 768px){
+        @content
+    }
+}
+
 .fontKanit{
     font-family:"Kanit";
 }
@@ -24,3 +36,62 @@
     }
 }
 
+.carrousel{
+    a{
+        &:nth-of-type(1){
+            margin-left: 1em;
+        }
+        
+        &:nth-of-type(2){
+            margin-right: 1em;
+        }
+
+        span{
+            filter: invert(100%);
+            
+        }
+    }    
+
+}
+
+.container-tienda{
+    max-width: 965px !important;
+
+    .card-list{
+        @media all and (max-width: 768px){
+            width: min-content !important;
+        }
+    }
+}
+
+
+
+.btn-view-more:hover{
+    transform: translateY(-2px) !important;
+    transition: all .2s ease-in-out !important;
+    background-color: $naranja-lg !important;
+    color: #fff !important;
+}
+
+
+.contacto-container{
+    margin-top: 2em;
+
+    @include desktop(){
+        padding: 0 17em;
+    }
+
+    .contacto-mapa{
+        border: none;
+        margin: 1em 0;
+    }
+
+    h3{
+        color: $verde;
+        font-weight: 400;
+    }
+
+    .btn-enviar{
+        padding: 0 !important;
+    }
+}

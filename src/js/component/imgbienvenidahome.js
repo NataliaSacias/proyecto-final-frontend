@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import img from "../../img/close-up-box-with-ripe-vegetables.jpg";
 import { Route, Link } from "react-router-dom";
+import "../../styles/home.scss";
 
 export const Imgbienvenidahome = () => (
 	<div>
@@ -16,7 +17,7 @@ export const Imgbienvenidahome = () => (
 				<Link
 					to="/tienda"
 					type="button"
-					className="btn text-light fontKanit p-3 px-5 mt-4 mr-4 mb-4"
+					className="btn text-white fontKanit p-3 px-5 mt-4 mr-4 mb-4 btn-view-more"
 					style={{ backgroundColor: "#EE7F11" }}>
 					IR A LA TIENDA
 				</Link>

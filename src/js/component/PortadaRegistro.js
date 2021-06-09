@@ -77,7 +77,7 @@ export const PortadaRegistro = () => {
 				<div className="">
 					<div className="row">
 						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="exampleInputEmail1" style={{ color: "#006241" }}>
+							<label htmlFor="nombreUsuario" style={{ color: "#006241" }}>
 								Nombre
 							</label>
 						</div>
@@ -87,7 +87,7 @@ export const PortadaRegistro = () => {
 							<input
 								type="text"
 								className="form-control"
-								id="exampleInputEmail1"
+								id="nombreUsuario"
 								aria-describedby="emailHelp"
 								style={{ borderColor: "#006241" }}
 								onChange={e => setNombre(e.target.value)}
@@ -101,7 +101,7 @@ export const PortadaRegistro = () => {
 				<div className="">
 					<div className="row">
 						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="exampleInputPassword1" style={{ color: "#006241" }}>
+							<label htmlFor="apellidoUsuario" style={{ color: "#006241" }}>
 								Apellido
 							</label>
 						</div>
@@ -111,7 +111,7 @@ export const PortadaRegistro = () => {
 							<input
 								type="text"
 								className="form-control"
-								id="exampleInputPassword1"
+								id="apellidoUsuario"
 								style={{ borderColor: "#006241" }}
 								onChange={e => setApellido(e.target.value)}
 								required
@@ -124,7 +124,7 @@ export const PortadaRegistro = () => {
 				<div className="">
 					<div className="row">
 						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="exampleInputPassword1" style={{ color: "#006241" }}>
+							<label htmlFor="emailUsuario" style={{ color: "#006241" }}>
 								Email
 							</label>
 						</div>
@@ -134,7 +134,7 @@ export const PortadaRegistro = () => {
 							<input
 								type="email"
 								className="form-control"
-								id="exampleInputPassword1"
+								id="emailUsuario"
 								style={{ borderColor: "#006241" }}
 								onChange={e => setEmail(e.target.value)}
 								required
@@ -147,7 +147,7 @@ export const PortadaRegistro = () => {
 				<div className="">
 					<div className="row">
 						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="exampleInputPassword1" style={{ color: "#006241" }}>
+							<label htmlFor="contraseñaUsuario" style={{ color: "#006241" }}>
 								Contraseña
 							</label>
 						</div>
@@ -157,7 +157,7 @@ export const PortadaRegistro = () => {
 							<input
 								type="password"
 								className="form-control"
-								id="exampleInputPassword1"
+								id="contraseñaUsuario"
 								style={{ borderColor: "#006241" }}
 								onChange={e => setContraseña(e.target.value)}
 								required
@@ -170,7 +170,7 @@ export const PortadaRegistro = () => {
 				<div className="">
 					<div className="row">
 						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="exampleInputPassword1" style={{ color: "#006241" }}>
+							<label htmlFor="confirmarContraseña" style={{ color: "#006241" }}>
 								Confirmar contraseña
 							</label>
 						</div>
@@ -180,7 +180,7 @@ export const PortadaRegistro = () => {
 							<input
 								type="password"
 								className={" form-control "}
-								id="exampleInputPassword1"
+								id="confirmarContraseña"
 								style={{ borderColor: "#006241" }}
 								onChange={e => setContraseñaConfirmar(e.target.value)}
 								value={ContraseñaConfirmar}

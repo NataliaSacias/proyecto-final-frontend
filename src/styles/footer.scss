@@ -59,6 +59,10 @@ a{
             list-style: none;        
             text-transform: uppercase; 
 
+            a:hover{
+                color: #fff !important;
+            }
+
             &:last-of-type{
                 ul{
                     @include flexCenter(row);
