@@ -110,6 +110,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({
 					dataLogin: data
 				});
+			},
+			SendPassToBack: async email => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: email
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				const res = await fetch(process.env.BACKEND_URL + "/user/email", requestOptions);
+				const data = await res.json();
+				console.log(data);
 			}
 		}
 	};
