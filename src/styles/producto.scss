@@ -4,6 +4,7 @@
 /*Colores*/
 $verde: #006241;
 $naranja: #EE7F11;
+$naranja-lg: rgb(252, 154, 56);
 
 *{
     box-sizing: border-box;
@@ -55,6 +56,12 @@ a{
                 width: 100%;
             }
 
+            small{
+                font-weight: 300;                    
+                font-style: italic;
+                color: #777777;
+            }
+
             @include desktop(){
                 &{
                     width: 450px;
@@ -86,6 +93,7 @@ a{
                     color: $verde;
                     font-weight: 500;
                     display: flex;
+                    align-items: baseline;
 
                     @include desktop(){
                         font-size: 1.8rem;
@@ -94,6 +102,10 @@ a{
                     span{
                         color: #000;
                         font-weight: 400;
+
+                        &:first-of-type{
+                            font-size: 1rem;
+                        }
 
                         &:last-of-type{
                             margin-left: auto;
@@ -123,6 +135,12 @@ a{
                     background-color: $naranja;
                     color: #fff;
                     margin-top: 1em;
+
+                    &:hover{
+                        transform: translateY(-2px);
+                        transition: all .2s ease-in-out;
+                        background-color: $naranja-lg;
+                    }
 
                 }
                 

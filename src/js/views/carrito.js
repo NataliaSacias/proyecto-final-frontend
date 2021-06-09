@@ -11,8 +11,16 @@ export const Carrito = () => {
 				<p>Cantidad</p>
 				<p>Subtotal</p>
 			</div>
-			<Item />
-			<Item />
+			<Item
+				nombre={"Banana"}
+				precio={230}
+				imgUrl={"https://tienda.ecohuertas.com.uy/imagenes/img_contenido/productos/b/for202.jpg"}
+			/>
+			<Item
+				nombre={"Manzanas"}
+				precio={530}
+				imgUrl={"https://tienda.ecohuertas.com.uy/imagenes/img_contenido/productos/b/fpi001.jpg"}
+			/>
 			<button className="btn-continuar">Continuar</button>
 		</div>
 	);

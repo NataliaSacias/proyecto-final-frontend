@@ -13,6 +13,7 @@ import { Contact } from "./views/contact";
 import { Producto } from "./views/producto";
 import Tienda from "./views/tienda";
 import { Carrito } from "./views/carrito";
+import { Error } from "./views/notFound";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -48,8 +49,10 @@ const Layout = () => {
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+						<Route exact path="/tienda/detalle/:theid">
+							<Producto />
+						</Route>
 						<Route exact path="/tienda">
-							{/* <Single /> */}
 							<Tienda />
 						</Route>
 						<Route exact path="/miperfil">
@@ -58,14 +61,11 @@ const Layout = () => {
 						<Route exact path="/contact">
 							<Contact />
 						</Route>
-						<Route exact path="/detalle">
-							<Producto />
-						</Route>
 						<Route exact path="/carrito">
 							<Carrito />
 						</Route>
 						<Route>
-							<h1>Not found!</h1>
+							<Error />
 						</Route>
 					</Switch>
 					<Footer />

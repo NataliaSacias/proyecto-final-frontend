@@ -1,19 +1,21 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Canasta from "../../img/canasta.jpg";
 import { InputCantidad } from "../component/InputCantidad";
 import { Trash } from "react-bootstrap-icons";
 import "../../styles/carrito.scss";
 
-export const Item = () => {
+export const Item = props => {
 	return (
 		<div className="item-container">
+			<Trash className="delete-item-desktop" />
 			<div className="img-item">
-				<img src={Canasta} />
+				<img src={props.imgUrl} />
 			</div>
 			<div className="item-detalle">
 				<div className="nombre">
-					<p>Canasta grande</p>
-					<p>$ 750</p>
+					<p>{props.nombre}</p>
+					<p>$ {props.precio}</p>
 				</div>
 				<div className="cantidad">
 					<InputCantidad />
@@ -26,4 +28,10 @@ export const Item = () => {
 			</div>
 		</div>
 	);
+};
+
+Item.propTypes = {
+	nombre: PropTypes.string,
+	precio: PropTypes.number,
+	imgUrl: PropTypes.string
 };

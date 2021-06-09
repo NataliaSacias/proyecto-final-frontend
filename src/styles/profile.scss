@@ -3,7 +3,7 @@
 
 /*Colores*/
 $verde: #006241;
-$verde-lg: #01a06b;
+$verde-dk: #005236;
 $naranja: #EE7F11;
 
 *{
@@ -86,7 +86,7 @@ a{
         justify-content: flex-end;
 
         & button{
-            background-color: $verde-lg;
+            background-color: $verde;
             border: none;
 
             &:first-child{
@@ -95,7 +95,7 @@ a{
             }
 
             &:hover{
-                background-color: $verde;
+                background-color: $verde-dk;
             }
         }
        

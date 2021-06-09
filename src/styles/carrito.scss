@@ -4,6 +4,7 @@
 /*Colores*/
 $verde: #006241;
 $naranja: #EE7F11;
+$naranja-lg: rgb(252, 154, 56);
 
 *{
     box-sizing: border-box;
@@ -80,6 +81,10 @@ a{
 
         p{
             font-size: 1.3em;
+
+            &:first-of-type{
+                margin-left: 5em;
+            }
         }
         
     }
@@ -98,6 +103,12 @@ a{
         border-radius: 5px;   
         padding: .7em 1em; 
         float: right;
+
+        &:hover{
+            transform: translateY(-2px);
+            transition: all .2s ease-in-out;
+            background-color: $naranja-lg;
+        }
     }
 }
 
@@ -117,12 +128,21 @@ a{
             margin: 1em 0;
         }
 
+    .delete-item-desktop{
+        display: none;
+
+        @include desktop(){
+            display: inline;
+            cursor: pointer;
+        }
+    }
 
     .img-item{
         width: 45%;
         display: flex;
         justify-content: center;
         align-self: flex-start;
+        margin: 0 1em;
 
         img{
             width: 75%;
@@ -146,15 +166,15 @@ a{
 
         @include desktop(){
             &{
-                width: calc(85% - 1em);
+                width: 80%;
                 flex-direction: row;
                 justify-content: space-between;
-                margin-left: 1em;
             }
         }
 
         
         .nombre{
+            width: 20%;
             p{
                 margin-bottom: unset;
 
@@ -184,6 +204,10 @@ a{
                 font-size: 2rem;
                 margin-left: .5em;
                 cursor: pointer;
+                
+                @include desktop(){
+                    display: none;
+                }
             }
 
         }
