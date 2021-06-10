@@ -14,6 +14,7 @@ import { Producto } from "./views/producto";
 import Tienda from "./views/tienda";
 import { Carrito } from "./views/carrito";
 import { Error } from "./views/notFound";
+import { Restablecer } from "./views/Restablecer";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -51,6 +52,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/tienda/detalle/:theid">
 							<Producto />
+						</Route>
+						<Route exact path="/cambiopass/:token">
+							<Restablecer />
 						</Route>
 						<Route exact path="/tienda">
 							<Tienda />

@@ -129,6 +129,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const res = await fetch(process.env.BACKEND_URL + "/user/email", requestOptions);
 				const data = await res.json();
 				console.log(data);
+			},
+			SendPassToBackForChangePass: async (pass, confirmarpass, token) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", "Bearer " + token);
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					pass: pass,
+					confirmarpass: confirmarpass
+				});
+
+				var requestOptions = {
+					method: "PUT",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				const res = await fetch(process.env.BACKEND_URL + "/user/email/cambiarpass", requestOptions);
+				const data = await res.json();
+				console.log(data);
 			}
 		}
 	};

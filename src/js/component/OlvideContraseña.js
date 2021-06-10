@@ -61,6 +61,7 @@ export const OlvideContraseña = () => {
 									aria-describedby="emailHelp"
 									style={{ borderColor: "#006241" }}
 									onChange={e => setEmail(e.target.value)}
+									required
 								/>
 							</div>
 						</div>
