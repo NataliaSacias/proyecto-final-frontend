@@ -7,6 +7,7 @@ import swal from "sweetalert";
 
 export const PortadaRegistro = () => {
 	const { store, actions } = useContext(Context);
+	const [Ok, setOk] = useState(false);
 	const [Nombre, setNombre] = useState("");
 	const [Apellido, setApellido] = useState("");
 	const [Email, setEmail] = useState("");
@@ -49,6 +50,8 @@ export const PortadaRegistro = () => {
 						text: "Su cuenta se creo correctamente",
 						icon: "success",
 						buttons: "Aceptar"
+					}).then(() => {
+						setOk(true);
 					});
 				}
 			});
@@ -72,143 +75,146 @@ export const PortadaRegistro = () => {
 					<h3>Completa la información:</h3>
 				</div>
 			</div>
+			{Ok ? (
+				<Redirect to="login" />
+			) : (
+				<form className={"needs-validation " + validated} onSubmit={registro}>
+					<div className="">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
+								<label htmlFor="nombreUsuario" style={{ color: "#006241" }}>
+									Nombre
+								</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
+								<input
+									type="text"
+									className="form-control"
+									id="nombreUsuario"
+									aria-describedby="emailHelp"
+									style={{ borderColor: "#006241" }}
+									onChange={e => setNombre(e.target.value)}
+									required
+								/>
+								<div className="invalid-feedback">Porfavor ingrese un Nombre.</div>
+							</div>
+						</div>
+					</div>
 
-			<form className={"needs-validation " + validated} onSubmit={registro}>
-				<div className="">
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="nombreUsuario" style={{ color: "#006241" }}>
-								Nombre
-							</label>
+					<div className="">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
+								<label htmlFor="apellidoUsuario" style={{ color: "#006241" }}>
+									Apellido
+								</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
+								<input
+									type="text"
+									className="form-control"
+									id="apellidoUsuario"
+									style={{ borderColor: "#006241" }}
+									onChange={e => setApellido(e.target.value)}
+									required
+								/>
+								<div className="invalid-feedback">Porfavor ingrese un Apellido.</div>
+							</div>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
-							<input
-								type="text"
-								className="form-control"
-								id="nombreUsuario"
-								aria-describedby="emailHelp"
-								style={{ borderColor: "#006241" }}
-								onChange={e => setNombre(e.target.value)}
-								required
-							/>
-							<div className="invalid-feedback">Porfavor ingrese un Nombre.</div>
-						</div>
-					</div>
-				</div>
 
-				<div className="">
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="apellidoUsuario" style={{ color: "#006241" }}>
-								Apellido
-							</label>
+					<div className="">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
+								<label htmlFor="emailUsuario" style={{ color: "#006241" }}>
+									Email
+								</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
+								<input
+									type="email"
+									className="form-control"
+									id="emailUsuario"
+									style={{ borderColor: "#006241" }}
+									onChange={e => setEmail(e.target.value)}
+									required
+								/>
+								<div className="invalid-feedback">Porfavor ingrese un Email.</div>
+							</div>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
-							<input
-								type="text"
-								className="form-control"
-								id="apellidoUsuario"
-								style={{ borderColor: "#006241" }}
-								onChange={e => setApellido(e.target.value)}
-								required
-							/>
-							<div className="invalid-feedback">Porfavor ingrese un Apellido.</div>
-						</div>
-					</div>
-				</div>
 
-				<div className="">
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="emailUsuario" style={{ color: "#006241" }}>
-								Email
-							</label>
+					<div className="">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
+								<label htmlFor="contraseñaUsuario" style={{ color: "#006241" }}>
+									Contraseña
+								</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
+								<input
+									type="password"
+									className="form-control"
+									id="contraseñaUsuario"
+									style={{ borderColor: "#006241" }}
+									onChange={e => setContraseña(e.target.value)}
+									required
+								/>
+								<div className="invalid-feedback">Porfavor ingrese una Contraseña.</div>
+							</div>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
-							<input
-								type="email"
-								className="form-control"
-								id="emailUsuario"
-								style={{ borderColor: "#006241" }}
-								onChange={e => setEmail(e.target.value)}
-								required
-							/>
-							<div className="invalid-feedback">Porfavor ingrese un Email.</div>
-						</div>
-					</div>
-				</div>
 
-				<div className="">
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="contraseñaUsuario" style={{ color: "#006241" }}>
-								Contraseña
-							</label>
+					<div className="">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
+								<label htmlFor="confirmarContraseña" style={{ color: "#006241" }}>
+									Confirmar contraseña
+								</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
+								<input
+									type="password"
+									className={" form-control "}
+									id="confirmarContraseña"
+									style={{ borderColor: "#006241" }}
+									onChange={e => setContraseñaConfirmar(e.target.value)}
+									value={ContraseñaConfirmar}
+									required
+								/>
+								<div className="invalid-feedback">Las contraseña no coinciden.</div>
+							</div>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
-							<input
-								type="password"
-								className="form-control"
-								id="contraseñaUsuario"
-								style={{ borderColor: "#006241" }}
-								onChange={e => setContraseña(e.target.value)}
-								required
-							/>
-							<div className="invalid-feedback">Porfavor ingrese una Contraseña.</div>
-						</div>
-					</div>
-				</div>
 
-				<div className="">
 					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="confirmarContraseña" style={{ color: "#006241" }}>
-								Confirmar contraseña
-							</label>
+						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center mt-4">
+							<button
+								type="submit"
+								className="btn text-light fontKanit "
+								style={{ backgroundColor: "#006241", width: "100%" }}>
+								Registrarse
+							</button>
 						</div>
 					</div>
 					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center flex-column">
-							<input
-								type="password"
-								className={" form-control "}
-								id="confirmarContraseña"
-								style={{ borderColor: "#006241" }}
-								onChange={e => setContraseñaConfirmar(e.target.value)}
-								value={ContraseñaConfirmar}
-								required
-							/>
-							<div className="invalid-feedback">Las contraseña no coinciden.</div>
+						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center mt-4 mb-5">
+							<Link to="/login" className="font-weight-bold" style={{ color: "#006241" }}>
+								¿Ya tienes una cuenta?
+							</Link>
 						</div>
 					</div>
-				</div>
-
-				<div className="row">
-					<div className="col-md-6 col-11 mx-auto d-flex justify-content-center mt-4">
-						<button
-							type="submit"
-							className="btn text-light fontKanit "
-							style={{ backgroundColor: "#006241", width: "100%" }}>
-							Registrarse
-						</button>
-					</div>
-				</div>
-				<div className="row">
-					<div className="col-md-6 col-11 mx-auto d-flex justify-content-center mt-4 mb-5">
-						<Link to="/login" className="font-weight-bold" style={{ color: "#006241" }}>
-							¿Ya tienes una cuenta?
-						</Link>
-					</div>
-				</div>
-			</form>
+				</form>
+			)}
 		</div>
 	);
 };

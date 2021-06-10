@@ -1,12 +1,13 @@
 import React, { Component, useContext, useRef, useState, useEffect } from "react";
 import ImgPortada from "../../img/señora-login.jpg";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../../styles/footer.scss";
 import { Context } from "../store/appContext";
 import swal from "sweetalert";
 
 export const PortadaLogin = () => {
 	const { store, actions } = useContext(Context);
+	const [Ok, setOk] = useState(false);
 	const [Email, setEmail] = useState("");
 	const [Contraseña, setContraseña] = useState("");
 	const [validated, setValidated] = useState("");
@@ -33,6 +34,8 @@ export const PortadaLogin = () => {
 						text: "Ya te logeaste, hora de comprar",
 						icon: "success",
 						buttons: "Aceptar"
+					}).then(() => {
+						setOk(true);
 					});
 				}
 			});
@@ -56,89 +59,95 @@ export const PortadaLogin = () => {
 					<h3>Iniciar sesión</h3>
 				</div>
 			</div>
+			{Ok ? (
+				<Redirect to="" />
+			) : (
+				<form className={"needs-validation " + validated} onSubmit={login}>
+					<div className="">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
+								<label htmlFor="exampleInputEmail1" style={{ color: "#006241" }}>
+									Email
+								</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-center">
+								<input
+									type="email"
+									className="form-control"
+									id="exampleInputEmail1"
+									aria-describedby="emailHelp"
+									style={{ borderColor: "#006241" }}
+									required
+									onChange={e => setEmail(e.target.value)}
+								/>
+							</div>
+						</div>
+					</div>
 
-			<form className={"needs-validation " + validated} onSubmit={login}>
-				<div className="">
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="exampleInputEmail1" style={{ color: "#006241" }}>
-								Email
-							</label>
+					<div className="">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
+								<label htmlFor="exampleInputPassword1" style={{ color: "#006241" }}>
+									Contraseña
+								</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-center">
+								<input
+									type="password"
+									className="form-control"
+									id="exampleInputPassword1"
+									style={{ borderColor: "#006241" }}
+									required
+									onChange={e => setContraseña(e.target.value)}
+								/>
+							</div>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center">
-							<input
-								type="email"
-								className="form-control"
-								id="exampleInputEmail1"
-								aria-describedby="emailHelp"
-								style={{ borderColor: "#006241" }}
-								required
-								onChange={e => setEmail(e.target.value)}
-							/>
-						</div>
-					</div>
-				</div>
 
-				<div className="">
-					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-start mt-4">
-							<label htmlFor="exampleInputPassword1" style={{ color: "#006241" }}>
-								Contraseña
-							</label>
+					<div className=" form-check mt-1">
+						<div className="row">
+							<div className="col-md-6 col-11 mx-auto d-flex justify-content-between">
+								<input
+									type="checkbox"
+									className="form-check-input "
+									id="exampleCheck1"
+									style={{ borderColor: "#006241" }}
+								/>
+								<label
+									className="form-check-label"
+									htmlFor="exampleCheck1"
+									style={{ color: "#006241" }}>
+									Recordar contraseña
+								</label>
+							</div>
 						</div>
 					</div>
 					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center">
-							<input
-								type="password"
-								className="form-control"
-								id="exampleInputPassword1"
-								style={{ borderColor: "#006241" }}
-								required
-								onChange={e => setContraseña(e.target.value)}
-							/>
+						<div className="col-md-6 col-11 mx-auto d-flex justify-content-center mt-4">
+							<button
+								type="submit"
+								className="btn text-light fontKanit "
+								style={{ backgroundColor: "#006241", width: "100%" }}>
+								Ingresar
+							</button>
 						</div>
 					</div>
-				</div>
-
-				<div className=" form-check mt-1">
 					<div className="row">
-						<div className="col-md-6 col-11 mx-auto d-flex justify-content-between">
-							<input
-								type="checkbox"
-								className="form-check-input "
-								id="exampleCheck1"
-								style={{ borderColor: "#006241" }}
-							/>
-							<label className="form-check-label" htmlFor="exampleCheck1" style={{ color: "#006241" }}>
-								Recordar contraseña
-							</label>
+						<div className="col-md-6 col-11 mx-auto d-flex justify-content-between mt-4 mb-5">
+							<Link to="/recuperar" className="font-weight-bold" style={{ color: "#006241" }}>
+								¿Olvidaste tu contraseña? Recuperala click acá!
+							</Link>
+							<Link to="/registro" className="font-weight-bold" style={{ color: "#006241" }}>
+								¿Sos nuevo? Registrate click acá!
+							</Link>
 						</div>
 					</div>
-				</div>
-				<div className="row">
-					<div className="col-md-6 col-11 mx-auto d-flex justify-content-center mt-4">
-						<button
-							type="submit"
-							className="btn text-light fontKanit "
-							style={{ backgroundColor: "#006241", width: "100%" }}>
-							Ingresar
-						</button>
-					</div>
-				</div>
-				<div className="row">
-					<div className="col-md-6 col-11 mx-auto d-flex justify-content-between mt-4 mb-5">
-						<Link to="/recuperar" className="font-weight-bold" style={{ color: "#006241" }}>
-							¿Olvidaste tu contraseña? Recuperala click acá!
-						</Link>
-						<Link to="/registro" className="font-weight-bold" style={{ color: "#006241" }}>
-							¿Sos nuevo? Registrate click acá!
-						</Link>
-					</div>
-				</div>
-			</form>
+				</form>
+			)}
 		</div>
 	);
 };
