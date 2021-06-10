@@ -1,16 +1,35 @@
-import React, { Component } from "react";
+import React, { Component, useState, useContext } from "react";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 import Canasta from "../../img/canasta.jpg";
 import { InputCantidad } from "../component/InputCantidad";
 import { Trash } from "react-bootstrap-icons";
 import "../../styles/carrito.scss";
 
 export const Item = props => {
+	const { store, actions } = useContext(Context);
+	const [cantidad, setCantidad] = useState(props.cantidad);
+
+	const index = props.keyIndex;
+
+	const agregarCantidad = () => {
+		setCantidad(cantidad + 1);
+	};
+
+	const eliminarCantidad = () => {
+		setCantidad(cantidad <= 1 ? 1 : cantidad - 1);
+	};
+
 	return (
 		<div className="item-container">
-			<Trash className="delete-item-desktop" />
+			<div
+				onClick={() => {
+					actions.eliminarProductoCarrito(index);
+				}}>
+				<Trash className="delete-item-desktop" />
+			</div>
 			<div className="img-item">
-				<img src={props.imgUrl} />
+				<img src={props.foto} />
 			</div>
 			<div className="item-detalle">
 				<div className="nombre">
@@ -18,12 +37,22 @@ export const Item = props => {
 					<p>$ {props.precio}</p>
 				</div>
 				<div className="cantidad">
-					<InputCantidad />
-					<Trash className="delete-item" />
+					<InputCantidad
+						setCantidad={setCantidad}
+						cantidad={cantidad}
+						agregarCantidad={agregarCantidad}
+						eliminarCantidad={eliminarCantidad}
+					/>
+					<div
+						onClick={() => {
+							actions.eliminarProductoCarrito(index);
+						}}>
+						<Trash className="delete-item" />
+					</div>
 				</div>
 				<div className="subtotal">
 					<p>Subtotal </p>
-					<p>$ 750</p>
+					<p>$ {props.precio * cantidad}</p>
 				</div>
 			</div>
 		</div>
@@ -33,5 +62,7 @@ export const Item = props => {
 Item.propTypes = {
 	nombre: PropTypes.string,
 	precio: PropTypes.number,
-	imgUrl: PropTypes.string
+	foto: PropTypes.string,
+	keyIndex: PropTypes.number,
+	cantidad: PropTypes.number
 };

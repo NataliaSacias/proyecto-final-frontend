@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			productos: [],
 			dataRegistro: [],
 			detalleProducto: [],
-			dataLogin: []
+			dataLogin: [],
+			productosCarrito: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -129,6 +130,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const res = await fetch(process.env.BACKEND_URL + "/user/email", requestOptions);
 				const data = await res.json();
 				console.log(data);
+			},
+			agregarProductoAlCarrito: nuevoItem => {
+				const store = getStore();
+				let listaCarrito = [...store.productosCarrito, nuevoItem];
+				setStore({ productosCarrito: listaCarrito });
+			},
+
+			eliminarProductoCarrito: itemCarritoIndex => {
+				const store = getStore();
+				let nuevaListaCarrito = store.productosCarrito.filter((item, index) => {
+					if (itemCarritoIndex != index) {
+						return item;
+					}
+				});
+
+				setStore({ productosCarrito: nuevaListaCarrito });
 			}
 		}
 	};
