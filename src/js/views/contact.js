@@ -1,5 +1,5 @@
 import React from "react";
-import { PortadaContact } from "../component/PortadaPago";
+import { PortadaContact } from "../component/PortadaContact";
 
 export const Contact = () => (
 	<div>

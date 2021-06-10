@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../styles/footer.scss";
 import { Calendario } from "./Calendario";
 
-export const PortadaContact = () => {
+export const Portadapago = () => {
 	return (
 		<div className="fontKanit d-flex justify-content-center flex-column">
 			<div className="row">
