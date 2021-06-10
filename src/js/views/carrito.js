@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Item } from "../component/ItemCarrito";
+import { Context } from "../store/appContext";
 import "../../styles/carrito.scss";
 
 export const Carrito = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="carrito-container">
 			<h3>Mi carrito</h3>
@@ -11,16 +13,18 @@ export const Carrito = () => {
 				<p>Cantidad</p>
 				<p>Subtotal</p>
 			</div>
-			<Item
-				nombre={"Banana"}
-				precio={230}
-				imgUrl={"https://tienda.ecohuertas.com.uy/imagenes/img_contenido/productos/b/for202.jpg"}
-			/>
-			<Item
-				nombre={"Manzanas"}
-				precio={530}
-				imgUrl={"https://tienda.ecohuertas.com.uy/imagenes/img_contenido/productos/b/fpi001.jpg"}
-			/>
+			{store.productosCarrito.map((producto, index) => {
+				return (
+					<Item
+						key={index}
+						keyIndex={index}
+						nombre={producto.nombre}
+						precio={producto.precio}
+						cantidad={producto.cantidad}
+						foto={producto.fotoDePortada}
+					/>
+				);
+			})}
 			<button className="btn-continuar">Continuar</button>
 		</div>
 	);

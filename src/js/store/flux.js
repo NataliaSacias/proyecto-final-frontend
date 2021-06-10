@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			productos: [],
 			dataRegistro: [],
 			detalleProducto: [],
-			dataLogin: []
+			dataLogin: [],
+			productosCarrito: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -130,6 +131,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await res.json();
 				console.log(data);
 			},
+			agregarProductoAlCarrito: nuevoItem => {
+				const store = getStore();
+				let listaCarrito = [...store.productosCarrito, nuevoItem];
+				setStore({ productosCarrito: listaCarrito });
+			},
+
+			eliminarProductoCarrito: itemCarritoIndex => {
+				const store = getStore();
+				let nuevaListaCarrito = store.productosCarrito.filter((item, index) => {
+					if (itemCarritoIndex != index) {
+						return item;
+					}
+				});
+
+                setStore({ productosCarrito: nuevaListaCarrito });
+            },
 			SendPassToBackForChangePass: async (pass, confirmarpass, token) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Authorization", "Bearer " + token);

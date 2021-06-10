@@ -11,7 +11,17 @@ import "../../styles/producto.scss";
 export const Producto = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	const detalle = store.detalleProducto;
 
+	const [cantidad, setCantidad] = useState(1);
+
+	const agregarCantidad = () => {
+		setCantidad(cantidad + 1);
+	};
+
+	const eliminarCantidad = () => {
+		setCantidad(cantidad <= 1 ? 1 : cantidad - 1);
+	};
 	return (
 		<>
 			<div className="producto-wrapper">
@@ -30,8 +40,24 @@ export const Producto = () => {
 							</p>
 						</div>
 						<div className="btn-container">
-							<InputCantidad />
-							<button>Agregar al carrito</button>
+							<InputCantidad
+								setCantidad={setCantidad}
+								cantidad={cantidad}
+								agregarCantidad={agregarCantidad}
+								eliminarCantidad={eliminarCantidad}
+							/>
+							<button
+								onClick={() =>
+									actions.agregarProductoAlCarrito({
+										nombre: detalle.nombre,
+										precio: detalle.precio,
+										fotoDePortada: detalle.fotoDePortada,
+										id: detalle.id,
+										cantidad: cantidad
+									})
+								}>
+								Agregar al carrito
+							</button>
 						</div>
 						<div className="envio">
 							<Truck />
