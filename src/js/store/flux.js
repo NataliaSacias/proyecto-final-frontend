@@ -17,7 +17,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			dataRegistro: [],
 			detalleProducto: [],
 			dataLogin: [],
-			productosCarrito: []
+			productosCarrito: [],
+			total: 0
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -137,6 +138,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ productosCarrito: listaCarrito });
 			},
 
+			calcularTotal: () => {
+				const store = getStore();
+				setStore({ total: 0 });
+				store.productosCarrito.map((producto, index) => {
+					let subTotal = producto.precio * producto.cantidad;
+					let total = store.total;
+					let totalFinal = total + subTotal;
+					return setStore({ total: totalFinal });
+				});
+			},
+
 			eliminarProductoCarrito: itemCarritoIndex => {
 				const store = getStore();
 				let nuevaListaCarrito = store.productosCarrito.filter((item, index) => {
@@ -145,8 +157,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 
-                setStore({ productosCarrito: nuevaListaCarrito });
-            },
+				setStore({ productosCarrito: nuevaListaCarrito });
+			},
+
+			setCantidadCarrito: (cantidad, index) => {
+				const store = getStore();
+				let nuevaCantidad = store.productosCarrito.filter((item, index) => {
+					if (index == index) {
+						return item;
+					}
+				});
+
+				nuevaCantidad.cantidad = cantidad;
+
+				let nuevaListaCarrito = store.productosCarrito.filter((item, index) => {
+					if (index != index) {
+						return item;
+					}
+				});
+
+				setStore({ productosCarrito: nuevaListaCarrito });
+
+				let listaCarrito = [...store.productosCarrito, nuevaCantidad];
+				setStore({ productosCarrito: listaCarrito });
+			},
+
 			SendPassToBackForChangePass: async (pass, confirmarpass, token) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Authorization", "Bearer " + token);

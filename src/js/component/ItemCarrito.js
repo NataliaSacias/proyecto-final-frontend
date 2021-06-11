@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext } from "react";
+import React, { Component, useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import Canasta from "../../img/canasta.jpg";
@@ -20,21 +20,26 @@ export const Item = props => {
 		setCantidad(cantidad <= 1 ? 1 : cantidad - 1);
 	};
 
+	useEffect(
+		() => {
+			actions.setCantidadCarrito(cantidad, index);
+			actions.calcularTotal();
+		},
+		[cantidad]
+	);
+
 	return (
 		<div className="item-container">
-			<div
-				onClick={() => {
-					actions.eliminarProductoCarrito(index);
-				}}>
-				<Trash className="delete-item-desktop" />
-			</div>
 			<div className="img-item">
 				<img src={props.foto} />
 			</div>
 			<div className="item-detalle">
 				<div className="nombre">
 					<p>{props.nombre}</p>
-					<p>$ {props.precio}</p>
+					<p>
+						${props.precio}
+						<span>xKG</span>
+					</p>
 				</div>
 				<div className="cantidad">
 					<InputCantidad
@@ -46,6 +51,7 @@ export const Item = props => {
 					<div
 						onClick={() => {
 							actions.eliminarProductoCarrito(index);
+							actions.calcularTotal();
 						}}>
 						<Trash className="delete-item" />
 					</div>

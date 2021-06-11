@@ -10,8 +10,13 @@ import "../../styles/producto.scss";
 
 export const Producto = () => {
 	const { store, actions } = useContext(Context);
+	const [clicked, setClick] = useState(false);
 	const params = useParams();
 	const detalle = store.detalleProducto;
+
+	// const menuClick = () => {
+	// 	setClick(!clicked);
+	// };
 
 	const [cantidad, setCantidad] = useState(1);
 
@@ -47,23 +52,31 @@ export const Producto = () => {
 								eliminarCantidad={eliminarCantidad}
 							/>
 							<button
-								onClick={() =>
+								onClick={() => {
 									actions.agregarProductoAlCarrito({
 										nombre: detalle.nombre,
 										precio: detalle.precio,
 										fotoDePortada: detalle.fotoDePortada,
 										id: detalle.id,
 										cantidad: cantidad
-									})
-								}>
+									});
+									// menuClick();
+									actions.calcularTotal();
+								}}>
 								Agregar al carrito
 							</button>
+							{/* <span className={"agregado-correcto" + (clicked == true ? " on" : "")}>
+								<p>¡Elemento agregado correctamente!</p>
+							</span> */}
 						</div>
 						<div className="envio">
 							<Truck />
 							<p>Envíos: Lunes y Miércoles - 10 a 18:30hs.</p>
 						</div>
 					</div>
+					{/* <div className="producto-detalle">
+						<p>{store.detalleProducto.descripcion}</p>
+					</div> */}
 				</div>
 			</div>
 			<ProductosDetacados />

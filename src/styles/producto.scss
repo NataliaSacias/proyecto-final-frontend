@@ -108,6 +108,7 @@ a{
                         }
 
                         &:last-of-type{
+                            font-size: 1rem;
                             margin-left: auto;
                             color: $naranja;
                         }
@@ -142,6 +143,22 @@ a{
                         background-color: $naranja-lg;
                     }
 
+                }
+
+                .agregado-correcto{
+                    display: none;
+                    p{
+                        font-weight: 300;
+                        font-size: .9rem;
+                        color: $naranja;
+                        text-align: center;
+                        margin-top: 1em !important;
+                        margin-bottom: unset !important;
+                    }
+                }
+
+                .on{
+                    display: inline;
                 }
                 
             }
