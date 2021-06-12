@@ -145,8 +145,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 
-                setStore({ productosCarrito: nuevaListaCarrito });
-            },
+				setStore({ productosCarrito: nuevaListaCarrito });
+			},
 			SendPassToBackForChangePass: async (pass, confirmarpass, token) => {
 				var myHeaders = new Headers();
 				myHeaders.append("Authorization", "Bearer " + token);
