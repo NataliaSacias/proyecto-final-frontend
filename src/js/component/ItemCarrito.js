@@ -1,4 +1,5 @@
 import React, { Component, useState, useContext, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import Canasta from "../../img/canasta.jpg";
@@ -9,8 +10,8 @@ import "../../styles/carrito.scss";
 export const Item = props => {
 	const { store, actions } = useContext(Context);
 	const [cantidad, setCantidad] = useState(props.cantidad);
-
-	const index = props.keyIndex;
+	const [index, setIndex] = useState(props.keyIndex);
+	const [ok, setOk] = useState(false);
 
 	const agregarCantidad = () => {
 		setCantidad(cantidad + 1);
@@ -27,7 +28,6 @@ export const Item = props => {
 		},
 		[cantidad]
 	);
-
 	return (
 		<div className="item-container">
 			<div className="img-item">
@@ -49,10 +49,12 @@ export const Item = props => {
 						eliminarCantidad={eliminarCantidad}
 					/>
 					<div
-						onClick={async () => {
-							await actions.eliminarProductoCarrito(index);
-							actions.calcularTotal();
+						onClick={() => {
+							actions.eliminarProductoCarrito(props.keyIndex);
+							setIndex(index - 1);
+							store.productosCarrito.length ? setCantidad(store.productosCarrito[index].cantidad) : "";
 						}}>
+						<Redirect to="/carrito" />
 						<Trash className="delete-item" />
 					</div>
 				</div>

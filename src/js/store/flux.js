@@ -151,13 +151,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			eliminarProductoCarrito: itemCarritoIndex => {
 				const store = getStore();
+				const actions = getActions();
 				let nuevaListaCarrito = store.productosCarrito.filter((item, index) => {
 					if (itemCarritoIndex != index) {
 						return item;
 					}
 				});
+				console.log(nuevaListaCarrito);
 
 				setStore({ productosCarrito: nuevaListaCarrito });
+				actions.calcularTotal();
 			},
 
 			setCantidadCarrito: (cantidad, indice) => {
