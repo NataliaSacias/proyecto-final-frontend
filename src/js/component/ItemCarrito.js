@@ -49,8 +49,8 @@ export const Item = props => {
 						eliminarCantidad={eliminarCantidad}
 					/>
 					<div
-						onClick={() => {
-							actions.eliminarProductoCarrito(index);
+						onClick={async () => {
+							await actions.eliminarProductoCarrito(index);
 							actions.calcularTotal();
 						}}>
 						<Trash className="delete-item" />
