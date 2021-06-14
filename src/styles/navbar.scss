@@ -90,6 +90,10 @@ a{
 
         a{
             position: relative;
+
+            &:hover{
+                color: $naranja;
+            }
             
 
             .icon{

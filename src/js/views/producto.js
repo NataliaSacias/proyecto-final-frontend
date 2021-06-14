@@ -1,11 +1,11 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import Apple from "../../img/apple.jpg";
-import LogoNegativo from "../../img/logo_b&w.png";
+import { ModalCarrito } from "../component/ModalCarrito";
 import { Truck } from "react-bootstrap-icons";
 import { ProductosDetacados } from "../component/ProductosDestacados";
 import { InputCantidad } from "../component/InputCantidad";
+import { Breadcrumbs } from "../component/Breadcrumb";
 import "../../styles/producto.scss";
 
 export const Producto = () => {
@@ -13,10 +13,6 @@ export const Producto = () => {
 	const [clicked, setClick] = useState(false);
 	const params = useParams();
 	const detalle = store.detalleProducto;
-
-	// const menuClick = () => {
-	// 	setClick(!clicked);
-	// };
 
 	const [cantidad, setCantidad] = useState(1);
 
@@ -27,9 +23,23 @@ export const Producto = () => {
 	const eliminarCantidad = () => {
 		setCantidad(cantidad <= 1 ? 1 : cantidad - 1);
 	};
+
+	//
+	const [modalShow, setModalShow] = useState(false);
+
+	const showModal = () => {
+		setModalShow(!modalShow);
+	};
+	//
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<>
 			<div className="producto-wrapper">
+				<Breadcrumbs nombre={store.detalleProducto.nombre} />
 				<div className="producto-container">
 					<div className="producto-img">
 						<img src={store.detalleProducto.fotoDePortada} />
@@ -60,26 +70,27 @@ export const Producto = () => {
 										id: detalle.id,
 										cantidad: cantidad
 									});
-									// menuClick();
 									actions.calcularTotal();
+									showModal();
 								}}>
 								Agregar al carrito
 							</button>
-							{/* <span className={"agregado-correcto" + (clicked == true ? " on" : "")}>
-								<p>¡Elemento agregado correctamente!</p>
-							</span> */}
 						</div>
 						<div className="envio">
 							<Truck />
 							<p>Envíos: Lunes y Miércoles - 10 a 18:30hs.</p>
 						</div>
 					</div>
-					{/* <div className="producto-detalle">
-						<p>{store.detalleProducto.descripcion}</p>
-					</div> */}
 				</div>
 			</div>
 			<ProductosDetacados />
+			<ModalCarrito
+				nombre={store.detalleProducto.nombre}
+				foto={store.detalleProducto.fotoDePortada}
+				precio={store.detalleProducto.precio}
+				modalShow={modalShow}
+				showModal={showModal}
+			/>
 		</>
 	);
 };
