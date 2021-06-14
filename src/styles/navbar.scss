@@ -88,9 +88,40 @@ a{
             justify-content: space-between;
         }
 
-        .icon{
-            @include desktop(){
-                font-size: 1.5rem;
+        a{
+            position: relative;
+
+            &:hover{
+                color: $naranja;
+            }
+            
+
+            .icon{
+                @include desktop(){
+                    font-size: 1.5rem;
+                }
+            }
+
+            .cantidad{
+                width: 25px;
+                height: 25px;
+                background: $naranja;
+                border-radius: 100%;
+                position: absolute;
+                top: -70%;
+                right: -70%;
+                font-size: 11px;
+                text-align: center;
+                font-weight: 500;
+                color: #fff;
+                margin: auto 0;
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .hay{
+                display: flex;
             }
         }
     }

@@ -18,7 +18,7 @@ export const PortadaContact = () => {
 	}
 
 	return (
-		<div className="fontKanit d-flex justify-content-center flex-column contacto-container">
+		<div className="fontKanit d-flex justify-content-center flex-column contacto-container mx-3">
 			<div className="row">
 				<div className="col-md-6 col-11 mx-auto d-flex justify-content-center">
 					<h3>Contacto</h3>

@@ -36,6 +36,7 @@ a{
     @include desktop(){
         height: 80vh;
         display: flex;
+        flex-direction: column;
     }
 
     .producto-container{
@@ -108,6 +109,7 @@ a{
                         }
 
                         &:last-of-type{
+                            font-size: 1rem;
                             margin-left: auto;
                             color: $naranja;
                         }
@@ -143,6 +145,22 @@ a{
                     }
 
                 }
+
+                .agregado-correcto{
+                    display: none;
+                    p{
+                        font-weight: 300;
+                        font-size: .9rem;
+                        color: $naranja;
+                        text-align: center;
+                        margin-top: 1em !important;
+                        margin-bottom: unset !important;
+                    }
+                }
+
+                .on{
+                    display: inline;
+                }
                 
             }
 
@@ -155,6 +173,31 @@ a{
                 }
             }
 
+        }
+    }
+}
+
+/*Breadcrumbs styles*/
+
+.breadcrumb-container{
+    font-family: "Kanit";
+    font-weight: 300 !important;
+    margin-left: 8%;
+    margin-top: 1.3em;
+
+    .breadcrumb{
+        background-color: transparent !important;
+
+        .breadcrumb-item{
+            a:hover{
+                color: $naranja !important;
+                text-decoration: none;
+            }
+        }
+
+        .active{
+            color: $verde !important;
+            font-weight: 400 !important;
         }
     }
 }
