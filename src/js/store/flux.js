@@ -163,6 +163,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				actions.calcularTotal();
 			},
 
+			aumentarCantidad: index => {
+				const store = getStore();
+				const actions = getActions();
+				store.productosCarrito[index].cantidad = store.productosCarrito[index].cantidad + 1;
+				actions.calcularTotal();
+			},
+
+			disminuirCantidad: index => {
+				const store = getStore();
+				const actions = getActions();
+				store.productosCarrito[index].cantidad = store.productosCarrito[index].cantidad - 1;
+				actions.calcularTotal();
+			},
+
 			setCantidadCarrito: (cantidad, indice) => {
 				const store = getStore();
 				let nuevaListaCarrito = store.productosCarrito.map((item, index) => {

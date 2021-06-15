@@ -10,24 +10,19 @@ import "../../styles/carrito.scss";
 export const Item = props => {
 	const { store, actions } = useContext(Context);
 	const [cantidad, setCantidad] = useState(props.cantidad);
-	const [index, setIndex] = useState(props.keyIndex);
 	const [ok, setOk] = useState(false);
-
-	const agregarCantidad = () => {
-		setCantidad(cantidad + 1);
-	};
-
-	const eliminarCantidad = () => {
-		setCantidad(cantidad <= 1 ? 1 : cantidad - 1);
-	};
 
 	useEffect(
 		() => {
-			actions.setCantidadCarrito(cantidad, index);
-			actions.calcularTotal();
+			setCantidad(store.productosCarrito[props.keyIndex].cantidad);
 		},
 		[cantidad]
 	);
+
+	const onChangeInput = event => {
+		parseInt(event.target.value ? event.target.value : 1); //Esto es porque al borrar queda en null y al querer sumar le quiere sumar al null y rompe todo, entonces parseo el nulo a numero
+	};
+
 	return (
 		<div className="item-container">
 			<div className="img-item">
@@ -42,17 +37,32 @@ export const Item = props => {
 					</p>
 				</div>
 				<div className="cantidad">
-					<InputCantidad
-						setCantidad={setCantidad}
-						cantidad={cantidad}
-						agregarCantidad={agregarCantidad}
-						eliminarCantidad={eliminarCantidad}
-					/>
+					<div className="input-container">
+						<input
+							type="button"
+							value="-"
+							onClick={() => {
+								actions.disminuirCantidad(props.keyIndex);
+							}}
+						/>
+						<input
+							type="button"
+							value="+"
+							onClick={() => {
+								actions.aumentarCantidad(props.keyIndex);
+							}}
+						/>
+						<input
+							type="text"
+							inputMode="numeric"
+							value={store.productosCarrito[props.keyIndex].cantidad}
+							onChange={() => onChangeInput(event)}
+							min="1"
+						/>
+					</div>
 					<div
 						onClick={() => {
 							actions.eliminarProductoCarrito(props.keyIndex);
-							setIndex(index - 1);
-							store.productosCarrito.length ? setCantidad(store.productosCarrito[index].cantidad) : "";
 						}}>
 						<Redirect to="/carrito" />
 						<Trash className="delete-item" />
@@ -60,7 +70,7 @@ export const Item = props => {
 				</div>
 				<div className="subtotal">
 					<p>Subtotal </p>
-					<p>$ {props.precio * cantidad}</p>
+					<p>$ {props.precio * store.productosCarrito[props.keyIndex].cantidad}</p>
 				</div>
 			</div>
 		</div>
