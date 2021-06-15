@@ -33,6 +33,6 @@ ModalCarrito.propTypes = {
 	nombre: PropTypes.string,
 	precio: PropTypes.number,
 	foto: PropTypes.string,
-	modalShow: PropTypes.func,
+	modalShow: PropTypes.bool,
 	showModal: PropTypes.func
 };

@@ -21,9 +21,8 @@ export const Carrito = () => {
 						</div>
 						{store.productosCarrito.map((producto, index) => {
 							return (
-								<>
+								<div key={index}>
 									<Item
-										key={index}
 										keyIndex={index}
 										nombre={producto.nombre}
 										precio={producto.precio}
@@ -31,7 +30,7 @@ export const Carrito = () => {
 										foto={producto.fotoDePortada}
 									/>
 									<hr />
-								</>
+								</div>
 							);
 						})}
 
@@ -41,9 +40,9 @@ export const Carrito = () => {
 							</p>
 						</div>
 
-						<button className="btn-continuar">
-							<Link to="/datosdecompra">Continuar</Link>
-						</button>
+						<Link className="btn-continuar" to="/datosdecompra">
+							Continuar
+						</Link>
 					</div>
 				</div>
 			) : (
