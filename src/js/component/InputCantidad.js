@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 import "../../styles/inputCantidad.scss";
@@ -6,8 +6,17 @@ import "../../styles/inputCantidad.scss";
 export const InputCantidad = props => {
 	const { store, actions } = useContext(Context);
 	const onChangeInput = event => {
-		props.setCantidad(parseInt(event.target.value ? event.target.value : 1)); //Esto es porque al borrar queda en null y al querer sumar le quiere sumar al null y rompe todo, entonces parseo el nulo a numero
+		parseInt(event.target.value ? event.target.value : 1); //Esto es porque al borrar queda en null y al querer sumar le quiere sumar al null y rompe todo, entonces parseo el nulo a numero
 	};
+
+	const [cantidad, setCantidad] = useState(props.cantidad);
+
+	useEffect(
+		() => {
+			setCantidad(store.productosCarrito[props.keyIndex].cantidad);
+		},
+		[cantidad]
+	);
 
 	return (
 		<div className="input-container">
@@ -15,22 +24,20 @@ export const InputCantidad = props => {
 				type="button"
 				value="-"
 				onClick={() => {
-					props.eliminarCantidad();
-					actions.calcularTotal();
+					actions.aumentarCantidad();
 				}}
 			/>
 			<input
 				type="button"
 				value="+"
 				onClick={() => {
-					props.agregarCantidad();
-					actions.calcularTotal();
+					actions.disminuirCantidad();
 				}}
 			/>
 			<input
 				type="text"
 				inputMode="numeric"
-				value={props.cantidad}
+				value={store.productosCarrito[props.keyIndex].cantidad}
 				onChange={() => onChangeInput(event)}
 				min="1"
 			/>
@@ -40,7 +47,8 @@ export const InputCantidad = props => {
 
 InputCantidad.propTypes = {
 	cantidad: PropTypes.number,
-	eliminarCantidad: PropTypes.func,
+	/* eliminarCantidad: PropTypes.func,
 	agregarCantidad: PropTypes.func,
-	setCantidad: PropTypes.func
+    setCantidad: PropTypes.func */
+	keyIndex: PropTypes.number
 };

@@ -36,6 +36,10 @@ export const Producto = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
+	const onChangeInput = event => {
+		parseInt(event.target.value ? event.target.value : 1); //Esto es porque al borrar queda en null y al querer sumar le quiere sumar al null y rompe todo, entonces parseo el nulo a numero
+	};
+
 	return (
 		<>
 			<div className="producto-wrapper">
@@ -55,12 +59,29 @@ export const Producto = () => {
 							</p>
 						</div>
 						<div className="btn-container">
-							<InputCantidad
-								setCantidad={setCantidad}
-								cantidad={cantidad}
-								agregarCantidad={agregarCantidad}
-								eliminarCantidad={eliminarCantidad}
-							/>
+							<div className="input-container">
+								<input
+									type="button"
+									value="-"
+									onClick={() => {
+										eliminarCantidad();
+									}}
+								/>
+								<input
+									type="button"
+									value="+"
+									onClick={() => {
+										agregarCantidad();
+									}}
+								/>
+								<input
+									type="text"
+									inputMode="numeric"
+									value={cantidad}
+									onChange={() => onChangeInput(event)}
+									min="1"
+								/>
+							</div>
 							<button
 								onClick={() => {
 									actions.agregarProductoAlCarrito({
