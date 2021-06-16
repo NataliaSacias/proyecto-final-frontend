@@ -8,41 +8,30 @@ import "../../styles/navbar.scss";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	const [clicked, setClick] = useState(false);
 	let hayElementos = store.productosCarrito.length;
 
 	const [token, setToken] = useState(false);
-	const menuClick = () => {
-		setClick(!clicked);
-	};
 
 	return (
 		<>
 			<nav className="navbar-container">
-				<div className="icon-mobile" onClick={menuClick}>
-					{clicked == true ? <X className="icon" /> : <Search className="icon" />}
-				</div>
-
 				<div className="logo">
 					<Link to="/">
 						<img src={Logo} />
 					</Link>
 				</div>
-				<div className="desktop-search">
-					<SearchBar />
-				</div>
 				{store.dataLogin.token ? (
 					<>
-						<div>
+						<div className="user-nombre">
 							<p>Hola {store.dataLogin.user.nombre}</p>
+							<Link
+								to="/"
+								onClick={() => {
+									actions.clearDataLogin();
+								}}>
+								<BoxArrowDownRight className="icon" />
+							</Link>
 						</div>
-						<Link
-							to="/"
-							onClick={() => {
-								actions.clearDataLogin();
-							}}>
-							<BoxArrowDownRight className="icon" />
-						</Link>
 					</>
 				) : (
 					""
@@ -67,9 +56,6 @@ export const Navbar = () => {
 				</div>
 			</nav>
 			<div style={{ height: "100px" }} />
-			<div className={"mobile-search" + (clicked == true ? " on" : "")}>
-				<SearchBar />
-			</div>
 		</>
 	);
 };

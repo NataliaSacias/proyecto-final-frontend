@@ -18,6 +18,7 @@ export const Profile = () => {
 
 	useEffect(() => {
 		actions.loadDatoPerfil();
+		window.scrollTo(0, 0);
 	}, []);
 
 	useEffect(

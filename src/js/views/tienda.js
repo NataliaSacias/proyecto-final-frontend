@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Card } from "../component/Card";
 import { Context } from "../store/appContext";
 import { Breadcrumbs } from "../component/Breadcrumb";
@@ -6,6 +6,10 @@ import "../../styles/home.scss";
 
 const Tienda = () => {
 	const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<Breadcrumbs nombre={store.detalleProducto.nombre} />

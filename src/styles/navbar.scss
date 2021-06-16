@@ -21,6 +21,12 @@ a{
     justify-content: space-evenly;
 }
 
+@mixin flexBetween(){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 /*Media Querie*/
 @mixin desktop(){
@@ -34,14 +40,14 @@ a{
     width: 100%;
     height: 100px;
     background: #fff;
-    @include flexCenter();
+    @include flexBetween();
     position: fixed;
     z-index: 3;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, .2);
 
-    .icon-mobile{
-        @include desktop(){
-            display: none;
+    @include desktop(){
+        &{
+            padding: 0 9em;
         }
     }
 
@@ -57,9 +63,8 @@ a{
         
     }
 
-
     .logo{
-        width: 45%;
+        width: 35%;
         height: fit-content;
         margin-left: 1em;
         img{
@@ -71,12 +76,18 @@ a{
         }
     }
 
-    .desktop-search{
-        display: none;
-
+    .user-nombre{
+        display: flex;
         @include desktop(){
-            display: flex;
-            width: 50%;
+            &{
+                padding-left: 70%;
+            }
+        }
+
+        p{
+            font-family: "Kanit";
+            margin-bottom: unset !important;
+            margin-right: 1em;
         }
     }
 

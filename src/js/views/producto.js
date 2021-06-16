@@ -32,9 +32,12 @@ export const Producto = () => {
 	};
 	//
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+	useEffect(
+		() => {
+			window.scrollTo(0, 0);
+		},
+		[store.detalleProducto]
+	);
 
 	const onChangeInput = event => {
 		parseInt(event.target.value ? event.target.value : 1); //Esto es porque al borrar queda en null y al querer sumar le quiere sumar al null y rompe todo, entonces parseo el nulo a numero

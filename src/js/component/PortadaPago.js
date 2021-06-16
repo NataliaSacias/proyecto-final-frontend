@@ -67,7 +67,7 @@ export const Portadapago = () => {
 				<h3> Ingresa datos para el pago </h3>
 				<p>Hacé click en el siguiente botón</p>
 
-				<form action="https://3001-blush-llama-571iuzgp.ws-us09.gitpod.io/comprar" method="POST">
+				<form action={process.env.BACKEND_URL + "/comprar"} method="POST">
 					<input type="hidden" value="Pago de carrito" name="title" />
 					<input type="hidden" value={store.total} name="price" />
 					<input
