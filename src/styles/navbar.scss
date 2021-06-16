@@ -72,7 +72,7 @@ a{
         }
 
         @include desktop(){
-            width: 12%;
+            width: 15%;
         }
     }
 
@@ -80,7 +80,7 @@ a{
         display: flex;
         @include desktop(){
             &{
-                padding-left: 70%;
+                padding-left: 65%;
             }
         }
 
