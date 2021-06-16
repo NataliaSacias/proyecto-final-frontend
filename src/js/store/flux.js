@@ -114,7 +114,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					dataLogin: data
 				});
 				sessionStorage.setItem("token", data.token);
-				/* sessionStorage.setItem("usuario", data.user); */
+				sessionStorage.setItem("nombre", data.user.nombre);
+				sessionStorage.setItem("apellido", data.user.apellido);
+				sessionStorage.setItem("email", data.user.email);
 			},
 			SendPassToBack: async email => {
 				var myHeaders = new Headers();
@@ -225,6 +227,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data);
 
 				setStore({ datoPerfil: data });
+			},
+			clearDataLogin: () => {
+				setStore({ dataLogin: [] });
+				sessionStorage.clear();
 			}
 		}
 	};

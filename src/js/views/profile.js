@@ -91,18 +91,18 @@ export const Profile = () => {
 							type="button"
 							className="btn btn-primary"
 							onClick={() => {
-								setEditar(true);
+								setEditar(false);
 							}}>
-							Editar
+							Guardar
 						</button>
 					) : (
 						<button
 							type="button"
 							className="btn btn-primary"
 							onClick={() => {
-								setEditar(false);
+								setEditar(true);
 							}}>
-							Guardar
+							Editar
 						</button>
 					)}
 				</div>

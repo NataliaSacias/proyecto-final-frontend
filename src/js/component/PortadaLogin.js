@@ -36,6 +36,7 @@ export const PortadaLogin = () => {
 						buttons: "Aceptar"
 					}).then(() => {
 						setOk(true);
+						/* location.reload(); */
 					});
 				}
 			});
