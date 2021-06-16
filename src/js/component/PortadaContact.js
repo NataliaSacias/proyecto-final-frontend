@@ -13,8 +13,8 @@ export const PortadaContact = () => {
 			result => {
 				console.log(result.text);
 				swal({
-					title: "La consulta fue realizada correctamente",
-					text: "En breve le vamos a dar una respuesta a su consutla gracias por su consulta",
+					title: "¡Gracias por comunicarte con nosotros!",
+					text: " Nos pondremos en contacto a la brevedad",
 					icon: "success",
 					buttons: "Aceptar"
 				}).then(() => {
