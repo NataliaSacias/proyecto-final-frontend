@@ -18,7 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			detalleProducto: [],
 			dataLogin: [],
 			productosCarrito: [],
-			total: 0
+			total: 0,
+			datoPerfil: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -112,6 +113,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({
 					dataLogin: data
 				});
+				sessionStorage.setItem("token", data.token);
+				/* sessionStorage.setItem("usuario", data.user); */
 			},
 			SendPassToBack: async email => {
 				var myHeaders = new Headers();
@@ -206,6 +209,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const res = await fetch(process.env.BACKEND_URL + "/user/email/cambiarpass", requestOptions);
 				const data = await res.json();
 				console.log(data);
+			},
+			loadDatoPerfil: async () => {
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
+
+				var requestOptions = {
+					method: "GET",
+					headers: myHeaders,
+					redirect: "follow"
+				};
+
+				const res = await fetch(process.env.BACKEND_URL + "/user/data", requestOptions);
+				const data = await res.json();
+				console.log(data);
+
+				setStore({ datoPerfil: data });
 			}
 		}
 	};
