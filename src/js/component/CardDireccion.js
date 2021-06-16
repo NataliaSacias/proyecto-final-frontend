@@ -6,9 +6,9 @@ export const CardDireccion = () => {
 		<div className="card-container">
 			<ul>
 				<li>
-					Manuel D. Rodríguez <span>S/N</span>
+					Manuel D. Rodríguez <span>651</span>
 				</li>
-				<li>Casa verde con rejas amarillas y puertas rojas</li>
+				<li>Casa con rejas y patio al frente</li>
 				<li>San José</li>
 			</ul>
 			<div className="card-btn">

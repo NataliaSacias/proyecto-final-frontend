@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Item } from "../component/ItemCarrito";
 import { Context } from "../store/appContext";
 import { NoHayProducto } from "../component/NoHayProductos";
+import { Breadcrumbs } from "../component/Breadcrumb";
 import "../../styles/carrito.scss";
 
 export const Carrito = () => {
@@ -10,6 +11,7 @@ export const Carrito = () => {
 
 	return (
 		<>
+			<Breadcrumbs />
 			{store.productosCarrito.length != 0 ? (
 				<div className="carrito-container">
 					<h3>Mi carrito</h3>
