@@ -43,7 +43,7 @@ export const Producto = () => {
 	return (
 		<>
 			<div className="producto-wrapper">
-				<Breadcrumbs nombre={store.detalleProducto.nombre} />
+				{/* <Breadcrumbs nombre={store.detalleProducto.nombre} /> */}
 				<div className="producto-container">
 					<div className="producto-img">
 						<img src={store.detalleProducto.fotoDePortada} />

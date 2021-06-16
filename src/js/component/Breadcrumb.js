@@ -3,7 +3,6 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { House } from "react-bootstrap-icons";
-import "../../styles/producto.scss";
 
 export const Breadcrumbs = props => {
 	return (
