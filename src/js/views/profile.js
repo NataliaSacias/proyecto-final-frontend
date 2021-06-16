@@ -19,6 +19,7 @@ export const Profile = () => {
 	useEffect(() => {
 		actions.loadDatoPerfil();
 	}, []);
+
 	useEffect(
 		() => {
 			setNombre(store.datoPerfil.nombre);
