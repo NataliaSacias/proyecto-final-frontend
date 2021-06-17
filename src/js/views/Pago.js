@@ -1,8 +1,13 @@
-import React from "react";
-import { Portadapago} from "../component/PortadaPago";
+import React, { useEffect } from "react";
+import { Portadapago } from "../component/PortadaPago";
 
-export const Portadapago = () => (
-	<div>
-		<Portadapago />
-	</div>
-);
+export const Portadapago = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    return (<div>
+        <Portadapago />
+    </div>)
+
+};

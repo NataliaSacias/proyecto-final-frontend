@@ -1,12 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Item } from "../component/ItemCarrito";
 import { Context } from "../store/appContext";
 import { NoHayProducto } from "../component/NoHayProductos";
+import { Breadcrumbs } from "../component/Breadcrumb";
 import "../../styles/carrito.scss";
 
 export const Carrito = () => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>
